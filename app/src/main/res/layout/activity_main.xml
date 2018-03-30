@@ -6,26 +6,27 @@
     android:layout_height="match_parent"
     android:background="@drawable/my_bg"
     tools:context="client.foodpark.com.foodparkclient.Activities.MainActivity">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
-
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/logo_eat_it"
-            />
+            android:src="@drawable/logo_eat_it" />
+
         <TextView
+            android:id="@+id/tvSlogan"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:text="@string/txtslogan"
             android:fontFamily="@font/verdana"
-            android:textAlignment="center"/>
+            android:gravity="center"
+            android:text="@string/txtslogan"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
@@ -36,18 +37,18 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnSignIn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
-            android:text="Sign In"
-            android:id="@+id/btn_signin"
             android:layout_margin="8dp"
+            android:layout_weight="1"
             android:background="@color/btnSignupActive"
             android:fontFamily="@font/verdana"
             android:shadowColor="@android:color/black"
-            android:textStyle="bold"
-            android:textAllCaps="true"/>
+            android:text="Sign In"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
