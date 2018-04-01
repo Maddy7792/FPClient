@@ -1,6 +1,7 @@
 package client.foodpark.com.foodparkclient.Auth;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,9 +16,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import client.foodpark.com.foodparkclient.Common;
+import client.foodpark.com.foodparkclient.Home.HomeActivity;
 import client.foodpark.com.foodparkclient.Model.User;
 import client.foodpark.com.foodparkclient.R;
 import client.foodpark.com.foodparkclient.Utils.Constants;
+import client.foodpark.com.foodparkclient.Utils.IntentMethods;
 
 public class FPCSignInActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,10 +33,12 @@ public class FPCSignInActivity extends AppCompatActivity implements View.OnClick
     private String phoneNumber;
     private String password;
     private ProgressDialog progressDialog;
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fpc_sign_in);
+        context = this;
         userDatabase = FirebaseDatabase.getInstance();
         userTableReference = userDatabase.getReference().child(Constants.KEY_USER);
         etPhoneNumber=findViewById(R.id.et_phone_number);
@@ -50,6 +56,7 @@ public class FPCSignInActivity extends AppCompatActivity implements View.OnClick
             case R.id.btnLogIn:
                 progressDialog = new ProgressDialog(this);
                 progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(false);
                 progressDialog.show();
                 phoneNumber = etPhoneNumber.getText().toString();
                 password = etPassword.getText().toString();
@@ -63,7 +70,9 @@ public class FPCSignInActivity extends AppCompatActivity implements View.OnClick
                             user.setPhone(phoneNumber);
                             if (Boolean.parseBoolean(user.getIsStaff())){
                                 if (user.getPassword().equals(password)){
-
+                                    IntentMethods.callIntent(context, HomeActivity.class);
+                                    Common.currentUser = user;
+                                    finish();
                                 }else {
                                     progressDialog.dismiss();
                                     Toast.makeText(FPCSignInActivity.this, "Worng Password !", Toast.LENGTH_SHORT).show(); 

@@ -16,9 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Auth.FPCSignInActivity">
-
-        </activity>
+        <activity android:name=".Auth.FPCSignInActivity" />
+        <activity
+            android:name=".Home.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Activities.FPCFoodListActivity"></activity>
     </application>
 
 </manifest>

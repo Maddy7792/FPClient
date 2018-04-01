@@ -15,4 +15,10 @@ public class IntentMethods {
         Intent callIntent = new Intent(context,destinationClass);
         context.startActivity(callIntent);
     }
+
+    public static void signOut(Context context,Class<?> destinationClass){
+        Intent signOut = new Intent(context,destinationClass);
+        signOut.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(signOut);
+    }
 }

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">FoodParkClient</string>
     <string name="txtslogan">Part of the secret to success in life is to eat what you like and let the food fight it out inside</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="app_exit_text">Are you sure you want to exit?</string>
+    <string name="action_settings">Settings</string>
 </resources>
